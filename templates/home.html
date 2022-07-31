@@ -4,50 +4,50 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Jovian careers</title>
-      <style>
-      .multicolortext {
-        background-image: linear-gradient(to left,           darkgray, black);
-        text-align: center;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        font-family: Roboto;
-        font-size: 30px;
-        font-weight:200px;
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <style>
+      #pic{
+        height:360px;
+        width :100% ;
+        object-fit:cover;
       }
-        #superb{ width:100%;
-                height:360px;
-               object-fit:cover}
-        .para {font-family:roboto;
-               color:rgb(80,80,80)
-          }
-        #container{
-          max-width:720px;
-          margin:0 auto 0 auto;
-        }
     </style>
   </head>
   <body>
-  <div id = "container">
-		<h1 class ="multicolortext">
+  <div class = "container">
+		<h1 class = "text-center mt-2 mb-4">
       Jovian Careers
     </h1>
-    <img id="superb" src = "https://webdev-jovian.vasu123567.repl.co/static/webdev.jpg">
-    <h3 class ="multicolortext">
+    <img class = "image-fluid" id = "pic" src = "https://webdev-jovian.vasu123567.repl.co/static/webdev.jpg">
+    <h3 class = "text-center mt-4 mb-2">
       About Jovian
     </h3>
-    <p class = "para"> 
+    <p class = "lead"> 
       Jovian is a premier institution offering career education; career information, advice and guidance; career coaching. “Find out what you like doing best, and get someone to pay you for doing it".Career is a very important thing in one's life. Whatever career path you choose to follow, it will impact your life greatly. Your career will define your status in a society in addition to your lifestyle. In other words, your career will determine your social circle and relationships
     </p>
-     <h3 class ="multicolortext">
+     <h3 class = "text-center mt-2 mb-4">
        Job Openings
     </h3>
-    <p>Todo - paste job openings here</p>
-    <div style = "text-align:center";>
-      <p class="para">@copywright jovian</p>
-    <button >Contact us</button>
+    {% for job in jobs %}
+    <div class='border-bottom row' style='margin-bottom:16px;padding-bottom:4px;'>
+      <div class="col-9">
+      <h4 style = "colour:rgb{120,120,120};margin-top:4px">{{job['Title']}}</h4>
+      <div ><b style ="margin-top:0px">Location: {{job['location']}}</b></div>
+    {% if 'Salary' in job %}
+    <div><b style = "margin-top-2px">Salary:{{job['Salary']}}</b></div>
+    {%endif%}
+      </div>
+      <div class='col-3'>
+      <button type="button" class="btn btn-primary float-lg-end" style="margin-top:2px" disabled>Apply</button>
+      </div>
     </div>
+      {% endfor %}
+    
+    
+      <p class = "text-center">@copywright jovian</p>
+      <div class = "text-center">
+    <button class="btn btn-primary btn-lg">Contact us</button>
+      </div>
   </div>
   </body>
 </html>
